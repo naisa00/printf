@@ -12,8 +12,8 @@ int _printf(const char *format, ...)
 	int num;
 	char letter, *str;
 
-	int count = _printf("Number: %d\nLetter: %c\nString: %s\n", num, letter, str);
-	count = vprintf(format, args);
+	 int count = vprintf(stdout, format, args);
+	 count = _printf("Number: %d\nLetter: %c\nString: %s\n", num, letter, str);
 
 	va_end(args);
 
