@@ -38,8 +38,8 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
-va_list list, char buffer[], int flags, int width, int precision, int size);
+int handle_print(const char *str, int *ptr,
+va_list list, char buff[], int flag, int w, int prec, int size);
 
 /* Funtions to print chars and strings */
 int print_char(va_list types, char buffer[],
@@ -104,7 +104,10 @@ char buffer[],
 /****************** UTILS ******************/
 int is_printable(char);
 int append_hexa_code(char, char[], int);
-int is_digit(char);
+int is_digit(char)
+{
+	return (0);
+}
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 #endif
