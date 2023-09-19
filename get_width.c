@@ -1,24 +1,25 @@
 #include "main.h"
 /**
  * get_width - calculate width
- * @format: print argument
- * @i: list of argument to primt
+ * @ptr: print argument
+ * @i: pointer
  * @list: list the arguments
+ *
  * Return: width
  */
-int get_width(const char *format, int *i, va_list lit)
+int get_width(const char *ptr, int *pointer, va_list list)
 {
 	int d;
 	int w = 0;
 
-	for (d = *i + 1; format[d] != '\0'; d++)
+	for (d = *pointer + 1; ptr[d] != '\0'; d++)
 	{
-		if (is_digit(format[d]))
+		if (is_digit(ptr[d]))
 		{
 			w *= 10;
-			w += format[d] - '0';
+			w += ptr[d] - '0';
 		}
-		else if (format[d] == '*')
+		else if (ptr[d] == '*')
 		{
 			d++;
 			w = va_arg(list, int);
@@ -27,6 +28,6 @@ int get_width(const char *format, int *i, va_list lit)
 		else
 			break;
 	}
-	*i = d - 1;
-	return (width);
+	*pointer = d - 1;
+	return (w);
 }
