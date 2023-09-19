@@ -5,8 +5,6 @@
 #include <unistd.h>
 #include <limits.h>
 #include<stdlib.h>
-
-
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
@@ -37,43 +35,11 @@ struct fmt
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
 };
-
-/**
- 
- *struct paramters - parameters struct
-
- *@unsign: flag if unsigned value
-
- *@plus_flags: on if plus-flag specified
- *@space_flag: on if hashtag_flag specified
- *@hashtag_flag: on if _flag specified
- *@zero_flag: on if _flag specified
- *minus_flag:on if _flag specified
- *
- * @width: field width specified
- * @precision: field precision specified
- *
- * @h_modifier: on if h_modifier is specified
- * @l_modifier: on if l_modifier is specified
- *
- */
-/**
- * typedef struct fmt fmt_t - Struct op
- *
- * @fmt: The format.
- * @fm_t: The function associated.
- */
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
-<<<<<<< HEAD
-=======
-
-/**FUNCTIONS **/
-
->>>>>>> 8d550134f270a80719fba9165c8e5be210b46bed
 /* Funtions to print chars and strings */
 int _printf_ch(int w, int size, va_list type, char buff[],
 	int flag, int prec);
@@ -105,7 +71,7 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Funciotns to handle other specifiers */
-int get_flags(const char *format, int *i);
+int get_flags(const char *ptr, int *i);
 int get_width(const char *format, int *i, va_list list);
 int get_precision(const char *format, int *i, va_list list);
 int get_size(const char *ptr, int *i);
@@ -127,11 +93,7 @@ int write_pointer(char buff[], int ind, int l,
 int write_unsgnd(int is_negative, int ind,
 char buffer[],
 	int flags, int width, int precision, int size);
-<<<<<<< HEAD
-=======
-
 /** UTILS **/
->>>>>>> 8d550134f270a80719fba9165c8e5be210b46bed
 int is_printable(char);
 int append_hexa_code(char, char[], int);
 int is_digit(char);

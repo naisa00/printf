@@ -17,7 +17,7 @@ int _printf_unsigned(va_list type, char buff[],
 	int i = BUFF_SIZE - 2;
 	unsigned long int number = va_arg(type, unsigned long int);
 
-	n = convert_size_unsgnd(number, size);
+	number = convert_size_unsgnd(number, size);
 	if (number == 0)
 		buff[i--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
@@ -53,7 +53,7 @@ int _printf_oct(va_list type, char buff[],
 	if (number == 0)
 		buff[i--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
-	while (n > 0)
+	while (number > 0)
 	{
 		buff[i--] = (number % 8) + '0';
 		number /= 8;
@@ -77,8 +77,7 @@ int _printf_oct(va_list type, char buff[],
 int _printf_unsigned_hexa(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
-	return (_printf_hexa(type, "0123456789abcdef", buff,
-		flag, 'x', w, prec, size));
+	return (_printf_hexa(type, "0123456789abcdef", buff, flag, 'x', w, prec, size));
 }
 
 /**
@@ -95,8 +94,7 @@ int _printf_unsigned_hexa(va_list type, char buff[],
 int _printf_hexa_upper(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
-	return (_printf_hexa(type, "0123456789ABCDEF", buff,
-		flag, 'X', w, prec, size));
+	return (_printf_hexa(type, "0123456789ABCDEF", buff, flag, 'X', w, prec, size));
 }
 
 /**
