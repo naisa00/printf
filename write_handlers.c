@@ -75,7 +75,7 @@ int write_number(int is_negative, int ind, char buffer[], int flags, int width, 
 }
 
 /**
- * write_num - write number
+ * write_number - print string
  * @ind: index
  * @buffer: buffer
  * @flags: flags
@@ -84,9 +84,10 @@ int write_number(int is_negative, int ind, char buffer[], int flags, int width, 
  * @length: length
  * @padd: pading char
  * @extra_c: extra char
+ * @is_negative: list of arguments
  * Return: number of printed char
  */
-int write_num(int ind, char buffer[], int flags, int width, int prec, int length, char padd, char extra_c)
+int write_number(int ind, char buffer[], int flags, int width, int prec, int length, int is_negative , char padd, char extra_c)
 {
 	int i, padd_start = 1;
 
@@ -133,7 +134,7 @@ int write_num(int ind, char buffer[], int flags, int width, int prec, int length
 		}
 	}
 	/**
-	 * write_unsignd - write unsigned number
+	 * write_unsgnd- write unsigned number
 	 * @is_negative: check if num is negative
 	 * @ind: index
 	 * @buffer: array
@@ -141,15 +142,19 @@ int write_num(int ind, char buffer[], int flags, int width, int prec, int length
 	 * @width: width
 	 * @precision: precision
 	 * @size: size
+	 *
 	 * Return: Number of char that is written
 	 */
-	int write_unsignd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size)
+	int write_unsgnd(int is_negative, int ind,
+	char buffer[],int flags, int width, int precision, int size)
 	{
+		/* The number is stored at the buffer is right and starts at i */
 		int length = BUFF_SIZE - ind - 1, i = 0;
 		char padd = ' ';
 
 		UNUSED(is_negative);
-		UNUSED(size);
+		UNUSED(size); 
+
 		if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 			return (0);
 		if (precision > 0 && precision < length)
