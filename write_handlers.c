@@ -133,7 +133,7 @@ int write_num(int ind, char buffer[], int flags, int width, int prec, int length
 		}
 	}
 	/**
-	 * write_unsgnd - write unsigned number
+	 * write_unsignd - write unsigned number
 	 * @is_negative: check if num is negative
 	 * @ind: index
 	 * @buffer: array
