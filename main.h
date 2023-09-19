@@ -99,11 +99,8 @@ int write_pointer(char buffer[], int ind, int length,
 int write_unsgnd(int is_negative, int ind,
 char buffer[],
 	int flags, int width, int precision, int size);
-/** UTILS **/
-
-/****************** UTILS ******************/
-int is_printable(char);
-int append_hexa_code(char, char[], int);
+int printable(char);
+int append_ascci(char, char[], int);
 int is_digit(char)
 {
 	return (0);

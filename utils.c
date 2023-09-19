@@ -1,49 +1,51 @@
 #include "main.h"
 /**
- * is_printable - check if char is printable
- * @c: char
+ * print - check if char is printable
+ * @ch: char
+ * 
  * Return: 1 or 0;
  */
-int is_printable(char c)
+int print(char ch)
 {
-	if (c >= 32 && c < 127)
+	if (ch >= 32 && ch < 127)
 	{
 		return (1);
 	}
 	return (0);
 }
 /**
- * append_hexa_code - sign ascci in hexadecimal code in buffer
- * @buffer: array
- * @i: index
- * @ascii_code: assci code
+ * append_ascci - sign ascci in hexadecimal code 
+ * @buff: array
+ * @ind: index
+ * @asci: assci code
+ *
  * Return: 3
  */
-int append_hexa_code(char ascii_code, char buffer[], int i)
+int append_ascci(char asci, char buff[], int ind)
 {
-	char map_to[] = "0123456789ABCDEF";
+	char map[] = "0123456789ABCDEF";
 
-	if (ascii_code < 0)
+	if (asci < 0)
 	{
-		ascii_code *= -1;
+		asci *= -1;
 	}
 
-	buffer[i++] = '\\';
-	buffer[i++] = 'x';
-	buffer[i++] = map_to[ascii_code/16];
-	buffer[i] = map_to[ascii_code % 16] ;
-
+	buff[ind++] = '\\';
+	buff[ind++] = 'x';
+	buff[ind++] = map[asci/16];
+	buff[ind] = map[asci % 16] ;
 	return (3);
 }
 
 /**
  * is_digit - check if a char is a digit
- * @c: char
+ * @ch: char
+ *
  * Return: 1 or 0
  */
-int is_digit(char c)
+int is_digit(char ch)
 {
-	if (c > '0' && c <= '9')
+	if (ch > '0' && ch <= '9')
 	{
 		return (1);
 	}
@@ -51,9 +53,10 @@ int is_digit(char c)
 }
 
 /**
- * convert_size_number - sign number to the specified size
+ * convert_size_number - sign number to the size
  * @num: number to be signed
  * @size: number including the type to be signed
+ *
  * Return: signed value of num
  */
 long int convert_size_number(long int num, int size)
@@ -70,9 +73,10 @@ long int convert_size_number(long int num, int size)
 }
 
 /**
- * convert_size_unsgnd - signed a number to the specified size
+ * convert_size_unsgnd - signed a number to the size
  * @num: number to be signed
  * @size: number including the type to be signed
+ *
  * Return: signed value of num
  */
 long int convert_size_unsgnd(unsigned long int num, int size)
