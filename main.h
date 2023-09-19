@@ -46,29 +46,27 @@ va_list list, char buffer[], int flags, int width, int precision, int size);
 /****************** FUNCTIONS ******************/
 
 /* Funtions to print chars and strings */
-int print_char(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int _printf_ch(int w, int size, va_list type, char buff[],
+	int flag, int prec);
+int _printf_str(va_list type, int w, char buff[],
+	int flag, int prec, int size);
+int _printf_percent(va_list type, int w, int size, char buff[], int prec, int flag);
 
 /* Functions to print numbers */
-int print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_octal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexadecimal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexa_upper(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int print_hexa(va_list types, char map_to[],
-char buffer[], int flags, char flag_ch, int width, int precision, int size);
+int _printf_integer(va_list type, char buff[],
+	int flag, int w, int prec, int size);
+int _printf_binary(va_list type, char buff[],
+	int flag, int w, int prec, int size);
+int _printf_unsigned(va_list type, char buff[],
+	int flag, int w, int prec, int size);
+int _printf_oct(va_list type, char buff[],
+	int flag, int w, int prec, int size);
+int _printf_unsigned_hexa(va_list type, char buff[],
+	int flag, int w, int prec, int size);
+int _printf_hexa_upper(va_list type, char buff[],
+	int flag, int w, int prec, int size);
+int _printf_hexa(va_list type, char map[],
+char buff[], int flag, char flag_char, int w, int prec, int size);
 
 /* Function to print non printable characters */
 int print_non_printable(va_list types, char buffer[],
