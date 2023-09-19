@@ -17,7 +17,11 @@ int print_char(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
+<<<<<<< HEAD
 	return (handle_write_char(c, buffer, flags, width, precision, size));
+=======
+	return (handle_write_char(ch, buff, flag, w, prec, size));
+>>>>>>> 739ac1f932a073ec5c9ebdd59c6a3769d4e7f352
 }
 /************************* PRINT A STRING *************************/
 /**
@@ -33,8 +37,13 @@ int print_char(va_list types, char buffer[],
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
+<<<<<<< HEAD
 	int length = 0, i;
 	char *str = va_arg(types, char *);
+=======
+	int l = 0, i;
+	char *arr = va_arg(type, char *);
+>>>>>>> 739ac1f932a073ec5c9ebdd59c6a3769d4e7f352
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -132,8 +141,13 @@ int print_int(va_list types, char buffer[],
 
 	while (num > 0)
 	{
+<<<<<<< HEAD
 		buffer[i--] = (num % 10) + '0';
 		num /= 10;
+=======
+		buff[d--] = (n % 10) + '0';
+		n /= 10;
+>>>>>>> 739ac1f932a073ec5c9ebdd59c6a3769d4e7f352
 	}
 
 	i++;
