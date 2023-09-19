@@ -1,11 +1,10 @@
 #include "main.h"
 
-/****************** PRINT POINTER ******************/
 /**
  * print_pointer - Prints the value of a pointer variable
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * @flags: Calculates active flags
  * @width: get width
  * @precision: Precision specification
  * @size: Size specifier
@@ -52,12 +51,11 @@ int print_pointer(va_list types, char buffer[],
 		width, flags, padd, extra_c, padd_start));
 }
 
-/************************* PRINT NON PRINTABLE *************************/
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable chars
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * @flags: Calculates active flags
  * @width: get width
  * @precision: Precision specification
  * @size: Size specifier
@@ -92,12 +90,11 @@ int print_non_printable(va_list types, char buffer[],
 	return (write(1, buffer, i + offset));
 }
 
-/************************* PRINT REVERSE *************************/
 /**
  * print_reverse - Prints reverse string.
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * @flags: Calculates active flags
  * @width: get width
  * @precision: Precision specification
  * @size: Size specifier
@@ -135,12 +132,11 @@ int print_reverse(va_list types, char buffer[],
 	}
 	return (count);
 }
-/************************* PRINT A STRING IN ROT13 *************************/
 /**
  * print_rot13string - Print a string in rot13.
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * @flags: Calculates active flags
  * @width: get width
  * @precision: Precision specification
  * @size: Size specifier
