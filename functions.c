@@ -16,7 +16,7 @@ int _printf_ch(va_list type, int w, int size, char buff[],
 {
 	char ch = va_arg(type, int);
 
-	return (handle_write_char(ch, buff, flag, width, prec, size));
+	return (handle_write_char(ch, buff, flag, w, prec, size));
 }
 /**
  * _printf_str - Prints a string
@@ -33,7 +33,7 @@ int _printf_str(va_list type, int w, char buff[],
 	int flag, int prec, int size)
 {
 	int l = 0, i;
-	char *arr = va_arg(types, char *);
+	char *arr = va_arg(type, char *);
 
 	UNUSED(buff);
 	UNUSED(flag);
@@ -130,7 +130,7 @@ int _printf_integer(va_list type, char buff[],
 	}
 	while (n > 0)
 	{
-		buffer[d--] = (n % 10) + '0';
+		buff[d--] = (n % 10) + '0';
 		n /= 10;
 	}
 

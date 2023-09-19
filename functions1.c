@@ -15,16 +15,16 @@ int _printf_unsigned(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
 	int i = BUFF_SIZE - 2;
-	unsigned long int n = va_arg(type, unsigned long int);
+	unsigned long int number = va_arg(type, unsigned long int);
 
-	n = convert_size_unsgnd(n, size);
-	if (n == 0)
+	n = convert_size_unsgnd(number, size);
+	if (number == 0)
 		buff[i--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
-	while (n > 0)
+	while (number > 0)
 	{
-		buff[i--] = (n % 10) + '0';
-		n /= 10;
+		buff[i--] = (number % 10) + '0';
+		number /= 10;
 	}
 	i++;
 	return (write_unsgnd(0, i, buff, flag, w, prec, size));
@@ -45,18 +45,18 @@ int _printf_oct(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
 	int i = BUFF_SIZE - 2;
-	unsigned long int n = va_arg(type, unsigned long int);
-	unsigned long int init_num = n;
+	unsigned long int number = va_arg(type, unsigned long int);
+	unsigned long int init_num = number;
 
 	UNUSED(w);
-	n = convert_size_unsgnd(n, size);
-	if (n == 0)
+	number = convert_size_unsgnd(number, size);
+	if (number == 0)
 		buff[i--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
 	while (n > 0)
 	{
-		buff[i--] = (n % 8) + '0';
-		n /= 8;
+		buff[i--] = (number % 8) + '0';
+		number /= 8;
 	}
 	if (flag & F_HASH && init_num != 0)
 		buff[i--] = '0';
@@ -77,7 +77,7 @@ int _printf_oct(va_list type, char buff[],
 int _printf_unsigned_hexa(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
-	return (print_hexa(types, "0123456789abcdef", buff,
+	return (_printf_hexa(type, "0123456789abcdef", buff,
 		flag, 'x', w, prec, size));
 }
 
@@ -117,19 +117,19 @@ int _printf_hexa(va_list type, char map[], char buff[],
 	int flag, char flag_char, int w, int prec, int size)
 {
 	int i = BUFF_SIZE - 2;
-	unsigned long int n = va_arg(type, unsigned long int);
-	unsigned long int init_num = n;
+	unsigned long int number = va_arg(type, unsigned long int);
+	unsigned long int init_num = number;
 
 	UNUSED(w);
-	n = convert_size_unsgnd(n, size);
+	number = convert_size_unsgnd(number, size);
 
-	if (n == 0)
+	if (number == 0)
 		buff[i--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
-	while (n > 0)
+	while (number > 0)
 	{
-		buff[i--] = map[n % 16];
-		n /= 16;
+		buff[i--] = map[number % 16];
+		number /= 16;
 	}
 	if (flag & F_HASH && init_num != 0)
 	{
