@@ -79,7 +79,11 @@ int _printf_oct(va_list type, char buff[],
  */
 int _printf_hexadecimal(va_list type, char buff[], int flag, int w, int prec, int size)
 {
+<<<<<<< HEAD
 	return (_printf_hexa(type, "0123456789abcdef", buff, flag, 'x', w, prec, size));
+=======
+	return (print_hexa(types, "0123456789abcdef", buffer, flags, 'x', width, prec, size));
+>>>>>>> 0061ef7b87d284a3d821d34f2e7d28164da72c8a
 }
 
 /**
@@ -94,8 +98,47 @@ int _printf_hexadecimal(va_list type, char buff[], int flag, int w, int prec, in
  */
 int _printf_hexa_upper(va_list type, char buff[], int flag, int w, int prec, int size)
 {
+<<<<<<< HEAD
 	return (_printf_hexa(type, "0123456789ABCDEF", buff, flag, 'X', w, prec, size));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+	return (_printf_hexa(type, "0123456789ABCDEF", buff, flag, 'X', w, prec, size));
+=======
+=======
+	return (print_hexa(type, "0123456789ABCDEF", buffer, flags, 'X', width, precision, size));
 }
+>>>>>>> 0061ef7b87d284a3d821d34f2e7d28164da72c8a
+
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(types, unsigned long int);
+	unsigned long int init_num = num;
+
+	UNUSED(width);
+
+	num = convert_size_unsgnd(num, size);
+
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
+	{
+		buffer[i--] = (num % 8) + '0';
+		num /= 8;
+	}
+
+	if (flags & F_HASH && init_num != 0)
+		buffer[i--] = '0';
+
+	i++;
+
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+>>>>>>> 04bf744f3efaa4963c697d367cf8f42a860ebe5d
+>>>>>>> 07938260ac1d084693f82969be1882ea60179c0a
+}
+
 
 /**
  * _printf_hexa - print hexadecimal number in uppercase or lower
