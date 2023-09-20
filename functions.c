@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf_ch - Prints a char
+ * _printf_char - Prints a char
  * @w: width
  * @size: size
  * @type: List a of arguments
@@ -11,19 +11,14 @@
  *
  * Return: Number of chars that is printed
  */
-int _printf_ch(va_list type, int w, int size, char buff[],
-	int flag, int prec)
+int _printf_char(va_list type, int w, int size, char buff[], int flag, int prec)
 {
 	char ch = va_arg(type, int);
 
-<<<<<<< HEAD
 	return (handle_string(c, buffer, flags, width, precision, size));
-=======
-	return (handle_write_char(ch, buff, flag, w, prec, size));
->>>>>>> 07938260ac1d084693f82969be1882ea60179c0a
 }
 /**
- * _printf_str - Prints a string
+ * _printf_string - Prints a string
  * @w: width
  * @type: List of arguments
  * @buff: array
@@ -31,10 +26,9 @@ int _printf_ch(va_list type, int w, int size, char buff[],
  * @size: Size
  * @prec: Precision
  *
- * Return: Number of char that is printed
+ * Return: printed char
  */
-int _printf_str(va_list type, int w, char buff[],
-	int flag, int prec, int size)
+int _printf_string(va_list type, int w, char buff[], int flag, int prec, int size)
 {
 	int l = 0, i;
 	char *arr = va_arg(type, char *);
@@ -89,7 +83,7 @@ int _printf_str(va_list type, int w, char buff[],
  * @prec: precision
  * @flag:  Calculates active flags
  *
- * Return: Number of chars printed
+ * Return: printed char
  */
 int _printf_percent(va_list type, int w, int size, char buff[], int prec, int flag)
 {
@@ -111,7 +105,7 @@ int _printf_percent(va_list type, int w, int size, char buff[], int prec, int fl
  * @prec: Precision
  * @size: Size
  *
- * Return: Number of chars printed
+ * Return: printed char
  */
 int _printf_integer(va_list type, char buff[],
 	int flag, int w, int prec, int size)
@@ -121,32 +115,27 @@ int _printf_integer(va_list type, char buff[],
 	long int i = va_arg(type, long int);
 	unsigned long int n;
 
-	i = convert_size_number(i, size);
+	num = convert_size_number(num, size);
 
-	if (i == 0)
+	if (num == 0)
 		buff[d--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
-	n = (unsigned long int)i;
-	if (i < 0)
+	n = (unsigned long int)num;
+	if (num < 0)
 	{
-		n = (unsigned long int)((-1) * i);
+		n = (unsigned long int)((-1) * num);
 		negative = 1;
 	}
-	while (n > 0)
+	while (num > 0)
 	{
 		buff[d--] = (n % 10) + '0';
 		n /= 10;
 	}
 
 	d++;
-
-<<<<<<< HEAD
-	i++;
+	num++;
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
-=======
-	return (write_number(negative, d, buff, flag, w, prec, size));
->>>>>>> 07938260ac1d084693f82969be1882ea60179c0a
-}
+
 /**
  * _printf_binary - Prints a binary number
  * @type: Lista of arguments

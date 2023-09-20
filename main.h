@@ -41,24 +41,18 @@ int handle_print(const char *str, int *ptr,
 va_list list, char buff[], int flag, int w, int prec, int size);
 
 /* Funtions to print chars and strings */
-int print_char(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int _printf_char(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_string(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_percent(va_list type, char buff[], int flag, int w, int prec, int size);
 
 /* Functions to print numbers */
-int print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int _printf_integer(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_binary(va_list types, char buffer[], int flag, int w, int prec, int size);
 int _printf_unsigned(va_list type, char buff[], int flag, int w, int prec, int size);
 int _printf_oct(va_list type, char buff[], int flag, int w, int prec, int size);
 int _printf_hexadecimal(va_list type, char buff[], int flag, int w, int prec, int size);
 int _printf_hexa_upper(va_list type, char buff[], int flag, int w, int prec, int size);
-int _printf_hexa(va_list type, char map[],
-char buff[], int flag, char flag_ch, int w, int prec, int size);
+int _printf_hexa(va_list type, char map[], char buff[], int flag, char flag_ch, int w, int prec, int size);
 /* Function to print non printable characters */
 int print_non_printable(va_list types, char buffer[], int flags, int width, int precision, int size);
 
