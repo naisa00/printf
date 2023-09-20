@@ -78,7 +78,7 @@ int _printf_oct(va_list type, char buff[],
 int _printf_unsigned_hexa(va_list type, char buffer[],
 	int flags, int width, int prec, int size)
 {
-	return (_printf_hexa(type, "0123456789abcdef", buffer, flags, 'x', width, prec, size));
+	return (print_hexa(types, "0123456789abcdef", buffer, flags, 'x', width, prec, size));
 }
 
 /**
@@ -97,8 +97,9 @@ int _printf_unsigned_hexa(va_list type, char buffer[],
 int printf_hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	return (printf_hexa(type, "0123456789ABCDEF", buffer, flags, 'X', width, prec, size));
+	return (print_hexa(type, "0123456789ABCDEF", buffer, flags, 'X', width, precision, size));
 }
+
 
 
 /**
