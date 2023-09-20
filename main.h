@@ -18,7 +18,6 @@
 /* SIZES */
 #define S_LONG 2
 #define S_SHORT 1
-int write_number(int ind, char buff[], char flag, int w, int prec, int l, char pad, char extra_ch);
 /**
  * struct fmt - Struct op
  *
@@ -37,7 +36,6 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
-int write_number(va_list args, char buffer[], int size, int flags, int width, int precision, int length, char specifier, char padding);
 int _printf(const char *format, ...);
 int handle_print(const char *str, int *ptr,
 va_list list, char buff[], int flag, int w, int prec, int size);
@@ -87,15 +85,18 @@ int handle_string(char ch, char buff[], int flag, int w, int prec, int size);
 int write_num(int is_positive, int ind, char buff[], int flag, int w, int prec, int size);
 int write_number(int ind, char buff[], int flag, int w, int prec, int l, char pad, char extra_ch);
 int write_ptr(char buff[], int ind, int l, int w, int flag, char pad, char extra_ch, int padd_start);
-int write_unsgnd(int is_negative, int ind,
-char buffer[],
-	int flags, int width, int precision, int size);
-int printable(char);
-int append_ascci(char, char[], int);
-int is_digit(char)
+int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size)
 {
 	return (0);
 }
-long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int number, int size);
+int printable(char);
+int append_ascci(char, char[], int);
+long int convert_size_number(long int num, int size)
+{
+	return (0);
+}
+long int convert_size_unsgnd(unsigned long int number, int size)
+{
+	return (0);
+}
 #endif
