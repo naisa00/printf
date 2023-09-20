@@ -113,29 +113,29 @@ int _printf_integer(va_list type, char buff[],
 	int d = BUFF_SIZE - 2;
 	int negative = 0;
 	long int i = va_arg(type, long int);
-	unsigned long int n;
+	unsigned long int num;
 
 	num = convert_size_number(num, size);
 
 	if (num == 0)
 		buff[d--] = '0';
 	buff[BUFF_SIZE - 1] = '\0';
-	n = (unsigned long int)num;
+	num = (unsigned long int)num;
 	if (num < 0)
 	{
-		n = (unsigned long int)((-1) * num);
+		num = (unsigned long int)((-1) * num);
 		negative = 1;
 	}
 	while (num > 0)
 	{
-		buff[d--] = (n % 10) + '0';
-		n /= 10;
+		buff[d--] = (num % 10) + '0';
+		num /= 10;
 	}
 
 	d++;
 	num++;
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
-
+	return (write_number(negative, d, buff, flag, w, prec, size));
+}
 /**
  * _printf_binary - Prints a binary number
  * @type: Lista of arguments

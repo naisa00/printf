@@ -73,9 +73,15 @@ int _printf_rever(va_list type, char buff[], int flag, int w, int prec, int size
 int _printf_rot13string(va_list type, char buff[], int flag, int w, int prec, int size);
 
 /* width handler */
-int handle_string(char ch, char buff[], int flag, int w, int prec, int size);
+int handle_string(char ch, char buff[], int flag, int w, int prec, int size)
+{
+	return (0);
+}
 int write_num(int is_positive, int ind, char buff[], int flag, int w, int prec, int size);
-int write_number(int ind, char buff[], int flag, int w, int prec, int l, char pad, char extra_ch);
+int write_number(int is_positive, int ind, char buff[], int flag, int w, int prec, int size)
+{
+	return (0);
+}
 int write_ptr(char buff[], int ind, int l, int w, int flag, char pad, char extra_ch, int padd_start)
 {
 	return (0);
