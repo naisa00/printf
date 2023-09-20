@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-/**
+/***
  * print_char - Program that prints char (character)
  * @types: List a of arguments
  * @buffer: Handle print for a buffer array
