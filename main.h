@@ -18,7 +18,7 @@
 /* SIZES */
 #define S_LONG 2
 #define S_SHORT 1
-
+int write_number(int ind, char buff[], char flag, int w, int prec, int l, char pad, char extra_ch);
 /**
  * struct fmt - Struct op
  *
@@ -37,6 +37,7 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
+int write_number(va_list args, char buffer[], int size, int flags, int width, int precision, int length, char specifier, char padding);
 int _printf(const char *format, ...);
 int handle_print(const char *str, int *ptr,
 va_list list, char buff[], int flag, int w, int prec, int size);
@@ -54,19 +55,14 @@ int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_binary(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_octal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexadecimal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexa_upper(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexa(va_list types, char map_to[],
-char buffer[], int flags, char flag_ch, int width, int precision, int size);
+int _printf_unsigned(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_oct(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_hexadecimal(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_hexa_upper(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_hexa(va_list type, char map[],
+char buff[], int flag, char flag_ch, int w, int prec, int size);
 /* Function to print non printable characters */
-int print_non_printable(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int print_non_printable(va_list types, char buffer[], int flags, int width, int precision, int size);
 
 /* Funcion to print memory address */
 int print_pointer(va_list types, char buffer[],
@@ -101,5 +97,5 @@ int is_digit(char)
 	return (0);
 }
 long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int num, int size);
+long int convert_size_unsgnd(unsigned long int number, int size);
 #endif

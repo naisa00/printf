@@ -16,7 +16,7 @@ int print_char(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return (handle_string(c, buffer, flags, width, precision, size));
 }
 /**
  * print_string - Prints a string
@@ -133,10 +133,8 @@ int print_int(va_list types, char buffer[],
 	}
 
 	i++;
-
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
-
 /**
  * print_binary - Prints an unsigned number
  * @types: Lista of arguments
