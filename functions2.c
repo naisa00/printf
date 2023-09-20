@@ -14,8 +14,8 @@
 int _printf_ptr(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
-	char extra_ch = 0, padd = ' ';
-	int ind = BUFF_SIZE - 2, l = 2, padd_start = 1;
+	char extra_ch = 0, pad = ' ';
+	int ind = BUFF_SIZE - 2, l = 2, pad_start = 1;
 	unsigned long number_addres;
 	char map[] = "0123456789abcdef";
 	void *address = va_arg(type, void *);
@@ -27,24 +27,23 @@ int _printf_ptr(va_list type, char buff[],
 		return (write(1, "(nil)", 5));
 	buff[BUFF_SIZE - 1] = '\0';
 	UNUSED(prec);
-	number_address = (unsigned long)address;
+	number_addres = (unsigned long)address;
 
-	while (number_address > 0)
+	while (number_addres > 0)
 	{
-		buff[ind--] = map[number_address % 16];
-		number_address /= 16;
+		buff[ind--] = map[number_addres % 16];
+		number_addres /= 16;
 		l++;
 	}
 	if ((flag & F_ZERO) && !(flag & F_MINUS))
-		padd = '0';
+		pad = '0';
 	if (flag & F_PLUS)
 		extra_ch = '+', l++;
 	else if (flag & F_SPACE)
 		extra_ch = ' ', l++;
 
 	ind++;
-	return (write_pointer(buff, ind, l,
-		w, flag, padd, extra_ch, padd_start));
+	return (write_ptr(buff, ind, l, w, flag, pad, extra_ch, pad_start));
 }
 /**
  * _printf_ascii - Prints ascii codes
@@ -71,10 +70,10 @@ int _printf_ascii(va_list type, char buff[],
 		return (write(1, "(null)", 6));
 	while (arr[i] != '\0')
 	{
-		if (is_printable(arr[i]))
+		if (printable(arr[i]))
 			buff[i + off] = arr[i];
 		else
-			off += append_hexa_code(arr[i], buff, i + off);
+			off += append_ascci(arr[i], buff, i + off);
 		i++;
 	}
 	buff[i + off] = '\0';
@@ -91,8 +90,7 @@ int _printf_ascii(va_list type, char buff[],
  *
  * Return: printed char
  */
-int print_rever(va_list type, char buff[],
-	int flag, int w, int prec, int size)
+int print_rever(va_list type, char buff[], int flag, int w, int prec, int size)
 {
 	char *arr;
 	int i, counter = 0;
@@ -119,7 +117,7 @@ int print_rever(va_list type, char buff[],
 	return (counter);
 }
 /**
- * print_rot13string - Print a string in rot13.
+ * _printf_rot13string - Print a string in rot13.
  * @type: Lista of arguments
  * @buff: array
  * @flag: Calculates active flags
@@ -129,8 +127,7 @@ int print_rever(va_list type, char buff[],
  *
  * Return: printed char
  */
-int print_rot13string(va_list type, char buff[],
-	int flag, int w, int prec, int size)
+int _printf_rot13string(va_list type, char buff[], int flag, int w, int prec, int size)
 {
 	char x;
 	char *arr;
@@ -139,7 +136,7 @@ int print_rot13string(va_list type, char buff[],
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	arr = va_arg(types, char *);
+	arr = va_arg(type, char *);
 	UNUSED(buff);
 	UNUSED(flag);
 	UNUSED(w);
@@ -151,11 +148,11 @@ int print_rot13string(va_list type, char buff[],
 	{
 		for (n = 0; in[n]; n++)
 		{
-			if (in_[n] == arr[i])
+			if (in[n] == arr[i])
 			{
-				x = out_[n];
+				x = out[n];
 				write(1, &x, 1);
-				counter++;
+				count++;
 				break;
 			}
 		}
@@ -163,8 +160,8 @@ int print_rot13string(va_list type, char buff[],
 		{
 			x = arr[i];
 			write(1, &x, 1);
-			counter++;
+			count++;
 		}
 	}
-	return (counter);
+	return (count);
 }

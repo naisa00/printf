@@ -73,24 +73,31 @@ int get_precision(const char *format, int *i, va_list list);
 int get_size(const char *format, int *i);
 
 /*Function to print string in reverse*/
-int print_reverse(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int _printf_rever(va_list type, char buff[], int flag, int w, int prec, int size);
 
 /*Function to print a string in rot 13*/
-int print_rot13string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int _printf_rot13string(va_list type, char buff[], int flag, int w, int prec, int size);
 
 /* width handler */
 int handle_string(char ch, char buff[], int flag, int w, int prec, int size);
 int write_num(int is_positive, int ind, char buff[], int flag, int w, int prec, int size);
 int write_number(int ind, char buff[], int flag, int w, int prec, int l, char pad, char extra_ch);
-int write_ptr(char buff[], int ind, int l, int w, int flag, char pad, char extra_ch, int padd_start);
+int write_ptr(char buff[], int ind, int l, int w, int flag, char pad, char extra_ch, int padd_start)
+{
+	return (0);
+}
 int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size)
 {
 	return (0);
 }
-int printable(char);
-int append_ascci(char, char[], int);
+int printable()
+{
+	return (0);
+}
+int append_ascci()
+{
+	return (0);
+}
 long int convert_size_number(long int num, int size)
 {
 	return (0);
