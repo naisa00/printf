@@ -18,7 +18,7 @@ int get_flags(const char *ptr, int *i)
 		for (d = 0; flag_ch[d] != '\0'; d++)
 			if (ptr[n] == flag_ch[d])
 			{
-				flag != flag_arr[d];
+				flag |= flag_arr[d];
 				break;
 			}
 		if (flag_ch[d] == 0)
