@@ -91,7 +91,11 @@ int _printf_oct(va_list type, char buff[],
 int _printf_unsigned_hexa(va_list type, char buff[],
 	int flag, int w, int prec, int size)
 {
+<<<<<<< HEAD
 	return (_printf_hexa(type, "0123456789abcdef", buff, flag, 'x', w, prec, size));
+=======
+	return (print_hexa(types, "0123456789abcdef", buffer, flags, 'x', width, prec, size));
+>>>>>>> 0061ef7b87d284a3d821d34f2e7d28164da72c8a
 }
 
 /**
@@ -111,8 +115,13 @@ int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	return (_printf_hexa(type, "0123456789ABCDEF", buff, flag, 'X', w, prec, size));
 =======
+=======
+	return (print_hexa(type, "0123456789ABCDEF", buffer, flags, 'X', width, precision, size));
+}
+>>>>>>> 0061ef7b87d284a3d821d34f2e7d28164da72c8a
 
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
@@ -141,6 +150,7 @@ int print_octal(va_list types, char buffer[],
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 >>>>>>> 04bf744f3efaa4963c697d367cf8f42a860ebe5d
 }
+
 
 /**
  * print_hexadecimal - Prints an unsigned number in hexadecimal notation
