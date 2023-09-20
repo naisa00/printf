@@ -42,8 +42,8 @@ va_list list, char buff[], int flag, int w, int prec, int size);
 
 /* Funtions to print chars and strings */
 int _printf_char();
-int _printf_string(va_list type, char buff[], int flag, int w, int prec, int size);
-int _printf_percent(va_list type, char buff[], int flag, int w, int prec, int size);
+int _printf_string(va_list type, int w, char buff[], int flag, int prec, int size);
+int _printf_percent(va_list type, int w, int size, char buff[], int prec, int flag);
 
 /* Functions to print numbers */
 int _printf_integer(va_list type, char buff[], int flag, int w, int prec, int size);
