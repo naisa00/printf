@@ -15,7 +15,7 @@ int _printf_char(va_list type, int w, int size, char buff[], int flag, int prec)
 {
 	char ch = va_arg(type, int);
 
-	return (handle_string(c, buffer, flags, width, precision, size));
+	return (handle_string(ch, buff, flag, w, prec, size));
 }
 /**
  * _printf_string - Prints a string
