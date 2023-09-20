@@ -47,7 +47,7 @@ int print_pointer(va_list types, char buffer[],
 	ind++;
 
 	/*return (write(1, &buffer[j], BUFF_SIZE - j - 1));*/
-	return (write_pointer(buffer, ind, length,
+	return (print_pointer(buffer, ind, length,
 		width, flags, pad, extra_c, pad_start));
 }
 
@@ -77,7 +77,7 @@ int print_non_pr(va_list types, char buffer[],
 
 	while (str[j] != '\0')
 	{
-		if (is_printable(str[j))
+		if (printable(str[j})
 			buffer[j + offset] = str[j];
 		else
 			offset += append_hexa_code(str[j], buffer, j + offset);
@@ -161,7 +161,7 @@ int print_rot13(va_list types, char buffer[],
 
 	if (str == NULL)
 		str = "(AHYY)";
-	for (i = 0; str[j]; j++)
+	for (j= 0; str[j]; j++)
 	{
 		for (q = 0; in[q]; q++)
 		{
