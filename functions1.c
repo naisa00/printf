@@ -75,10 +75,10 @@ int _printf_oct(va_list type, char buff[],
  *
  * Return: number of char that is printed
  */
-int _printf_unsigned_hexa(va_list type, char buff[],
-	int flag, int w, int prec, int size)
+int _printf_unsigned_hexa(va_list type, char buffer[],
+	int flags, int width, int prec, int size)
 {
-	return (_printf_unsigned_hexa(type, "0123456789abcdef", buff, flag, 'x', w, prec, size));
+	return (_printf_hexa(type, "0123456789abcdef", buffer, flags, 'x', width, prec, size));
 }
 
 /**
@@ -97,7 +97,7 @@ int _printf_unsigned_hexa(va_list type, char buff[],
 int printf_hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	return (printf_hexa(type, "0123456789ABCDEF", buff, flag, 'X', w, prec, size));
+	return (printf_hexa(type, "0123456789ABCDEF", buffer, flags, 'X', width, prec, size));
 }
 
 
@@ -155,7 +155,7 @@ int printf_hexa(va_list types, char map_to[], char buffer[],
 
 	if (flags & F_HASH && init_num != 0)
 	{
-		buffer[j--] = flag_cha;
+		buffer[j--] = flag_ch;
 		buffer[j--] = '0';
 	}
 
